@@ -34,8 +34,19 @@ body {
 }
 
 header {
-    text-align: center;
-    margin-bottom: 30px;
+    background-color: #2a2a2a; /* پس‌زمینه تاریک برای هدر */
+    padding: 20px;
+    border-bottom: 2px solid #d4af37; /* خط طلایی در پایین هدر */
+}
+
+
+.header-content {
+    display: flex;
+    flex-direction: column; /* حالت پیش‌فرض: لوگو بالا، متن پایین */
+    align-items: center; /* وسط‌چین عمودی */
+    text-align: center; /* متن وسط‌چین */
+    max-width: 1200px; /* حداکثر عرض محتوا */
+    margin: 0 auto; /* وسط‌چین کردن هدر */
 }
 
 header h1 {
@@ -48,6 +59,35 @@ header p {
     color: #b0b0b0;
 }
 
+.logo {
+    width: 150px; /* اندازه لوگو */
+    height: 150px;
+    margin-bottom: 20px; /* فاصله بین لوگو و متن */
+}
+
+.logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* مطمئن شو که لوگو به درستی نمایش داده میشه */
+    border-radius: 50%; /* اگر می‌خوای لوگو گرد بشه */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* سایه برای لوگو */
+}
+
+.welcome-text {
+    text-align: right; /* متن در سمت راست */
+}
+
+.welcome-text h1 {
+    font-size: 2rem;
+    color: #d4af37; /* رنگ طلایی */
+    margin-bottom: 10px;
+}
+
+.welcome-text p {
+    font-size: 1.2rem;
+    color: #b0b0b0;
+}
+
 .menu {
     display: flex;
     flex-wrap: wrap;
@@ -56,13 +96,15 @@ header p {
 }
 
 .menu-item {
-    background-color: #2a2a2a; /* پس‌زمینه تاریک برای آیتم‌ها */
+    position: relative; /* برای قرار دادن برچسب "موجود نیست" در وسط */
+    background-color: #2a2a2a;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     overflow: hidden;
     width: 300px;
     text-align: center;
     transition: transform 0.3s ease;
+    margin: 10px; /* فاصله بین آیتم‌ها */
 }
 
 .menu-item:hover {
@@ -95,11 +137,30 @@ header p {
     margin: 15px 0;
 }
 
-footer {
+.footer {
     text-align: center;
     margin-top: 30px;
     font-size: 1rem;
     color: #b0b0b0;
+}
+
+/* استایل برای آیتم‌های ناموجود */
+.out-of-stock {
+    opacity: 0.6; /* کاهش شفافیت برای نشان دادن عدم موجودی */
+}
+
+.out-of-stock-label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 0, 0, 0.8); /* پس‌زمینه قرمز با شفافیت */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 18px;
+    z-index: 1; /* مطمئن شو که برچسب روی عکس نمایش داده میشه */
 }
 
 /* رسپانسیو برای صفحه‌های کوچک‌تر */
@@ -116,6 +177,8 @@ footer {
         width: 100%;
         max-width: 400px;
     }
+
+    
 }
 
 @media (max-width: 480px) {
